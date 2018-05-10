@@ -1,0 +1,63 @@
+
+
+/* here is the comment */
+
+*{
+    margin: 10;
+    padding: 10;
+}
+
+
+
+body {
+    color: red;
+}
+
+
+
+img{
+
+width: 59%;
+
+
+}
+
+body {
+
+    font-family: font-family 'Raleway', sans-serif;
+}
+
+article {
+
+
+    max-width: 600px;
+
+    margin: 0 auto;
+
+
+}
+
+h1,
+h2 {
+    text-align: center;
+
+}
+
+h1{
+    color: #58585a;
+    font-size: 40px;
+    margin-top: 20px;
+}
+
+h2 {
+    color: #cca956;
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+p{
+
+    font-size: 18px;
+    color: #5f5f5f;
+
+}
