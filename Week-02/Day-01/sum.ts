@@ -2,11 +2,14 @@
 // -  The function should return the result
 'use strict';
 export { };
-function sum (a,b,c,d,e) {
-let sumN: number = (a+b+c+d+e);
-//console.log (sumN);
-return sumN;
+function sum(total:number=0): number {
+
+    for (let i:number = total; i>0; i--){
+        total= total+(i-1);
+
+    }
+    return total;
 }
 
-let result: number = sum (4,13,22,48,5);
-console.log ('the sum of all evil is',result);
+let number: number = sum(4);
+console.log (number);
