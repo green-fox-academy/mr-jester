@@ -4,11 +4,12 @@
 // It should print 'fail' if the parameter is 0
 
 'use strict';
-let input: number = 7
-function division(number: number) {
+let input: number = 8;
+function division(number: number): any {
     if (number === 0) {
-        console.log('fail');
+        return 'fail';
+    } else {
+        return (10 / number);
     }
-    return (10 / number);
 }
 console.log(division(input));
