@@ -10,18 +10,18 @@ const ctx = canvas.getContext('2d');
 // Draw 3 squares with that function.
 // Avoid code duplication.
 
-let c1: number = 0
-let c2: number = 0
-const c3: number = 50
-const c4: number = 50
+let c1: number = 0;
+let c2: number = 0;
+const c3: number = 50;
+const c4: number = 50;
 function drawandMultiply(n: number, m: number, w: number, h: number) {
 
     for (let i: number = 0; i <= 2; i++) {
         ctx.fillStyle = 'red';
         ctx.fillRect(n, m, w, h);
        // ctx.stroke();
-        m = m+50
-        n= n+50
+        m = m+50;
+        n= n+50;
     }
 }
 

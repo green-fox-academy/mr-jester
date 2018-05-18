@@ -21,7 +21,7 @@ let h: number = 40;
         ctx.fillRect(n, m, w, h);
        // ctx.stroke();
 
-        n= n+40;
+        n= n+80;
         
     }
 }
