@@ -30,6 +30,9 @@ class carrier {
 
   refill() {
     for (let i: number = 0; i < this.aircarft.length; i++) {
+      if (this.totalAmmo<1){
+        throw ('out of damn ammo');
+      }
       if (this.aircarft[i].firstPriority === true, this.aircarft[i].seconPriority === true) {
         this.totalAmmo -= this.aircarft[i].refill(this.totalAmmo);
       }
@@ -39,6 +42,7 @@ class carrier {
       else if (this.aircarft[i].firstPriority === false, this.aircarft[i].seconPriority === false) {
         this.totalAmmo -= this.aircarft[i].refill(this.totalAmmo);
       }
+
     }
   }
 }
