@@ -7,7 +7,7 @@ app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
- });
+});
 require('dotenv').config();
 const conn = mysql.createConnection({
 
@@ -56,8 +56,10 @@ app.get('/test/book_mast', (req, res) => {
   });
 })
 app.get('/test/category', (req, res) => {
-  let sql = 'SELECT cate_descrip FROM category';
-  let queryInputs = [req.query.cate_descrip]
+  let sql = 'SELECT book_name, aut_name, cate_descrip, pub_name, book_price FROM book_mast LEFT JOIN author ON book_mast.aut_id = author.aut_id LEFT JOIN category ON book_mast.cate_id = category.cate_id LEFT JOIN publisher ON book_mast.pub_id = publisher.pub_id;';
+  let queryInputs = []
+  if (req.query.category)
+    sql = 'SELECT book_name, aut_name, cate_descrip, pub_name, book_price FROM book_mast LEFT JOIN author ON book_mast.aut_id = author.aut_id LEFT JOIN category ON book_mast.cate_id = category.cate_id LEFT JOIN publisher ON book_mast.pub_id = publisher.pub_id WHEREcategory = ?;';
   conn.query(sql, queryInputs, (err, rows) => {
     if (err) {
       console.log(err);
@@ -65,7 +67,7 @@ app.get('/test/category', (req, res) => {
       return;
     }
     res.json({
-      authors: rows,
+      category: rows,
     });
   });
 })
@@ -83,10 +85,27 @@ app.get('/test/publisher', (req, res) => {
       return;
     }
     res.json({
-      authors: rows,
+      publisher: rows,
     });
   });
 })
+app.get('/test/allbooks', (req, res) => {
+  let sql = 'SELECT book_name, aut_name, cate_descrip, pub_name, book_price FROM book_mast LEFT JOIN author ON book_mast.aut_id = author.aut_id LEFT JOIN category ON book_mast.cate_id = category.cate_id LEFT JOIN publisher ON book_mast.pub_id = publisher.pub_id;';
+
+  conn.query(sql, (err, rows) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send();
+      //res.sendStatus(500);
+      return;
+    } else {
+      console.log(sql);
+      res.json({
+        authors: rows,
+      });
+    }
+  });
+});
 
 app.listen(PORT, () => {
   console.log(`listening to port ${PORT} bitches`);
