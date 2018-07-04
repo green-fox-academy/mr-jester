@@ -26,7 +26,7 @@
     <div>
       <label>
         <span>Password</span>
-        <input type="password" name="password" id="password" placeholder="password" required class="pass">
+        <input type="password" name="password" id="mainPass" placeholder="password" required class="pass">
       </label>
     </div>
     <div>
@@ -38,37 +38,10 @@
     <div>
       <input type="button" class="passvis" value="passvis">
     </div>
-    <button>Sign Me Up</button>
+    <button class = "submit"disabled>Sign Me Up</button>
   </form>
-  <script>
-    function passFunc() {
-      console.log('are u working')
-      document.querySelectorAll(".pass").forEach(element => {
-        if (element.type === "password") {
-          element.type = "text";
-        } else {
-          element.type = "password"
-        }
-      });
-    }
-    function passInvis() {
-      document.querySelectorAll(".pass").forEach(element => {
-
-        if (element.type === "text") {
-          element.type = "password";
-        } else {
-          element.type = "text"
-        }
-      })
-    }
-    const buttonPassVis = document.querySelector('.passvis')
-    buttonPassVis.addEventListener('mousedown', (event) => {
-      passFunc();
-    })
-    const buttonPassInvis = document.querySelector('.passvis');
-    buttonPassInvis.addEventListener('mouseup', (event) => {
-      passInvis();
-    })</script>
+  <script src="signup.js">
+ </script>
 </body>
 
 </html>
