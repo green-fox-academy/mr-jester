@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login Form</title>
+</head>
+
+<body>
+  <form class="My-Form">
+    <div>
+      <label>
+        <span>Username</span>
+        <input type="text" name="Username" id="Username" placeholder="type your username here please" autofocus required </label>
+    </div>
+    <div>
+      <label>
+        <span>Password</span>
+        <input type="password" name="Password" id="password" placeholder="type your Password here please" value="" required </label>
+        <input type="button" class="passvis">
+    </div>
+    <button>Submit</button>
+  </form>
+  <script>
+    function passFunc() {
+      console.log('are u working')
+      let x = document.getElementById("password");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password"
+      }
+    }
+    function passInvis() {
+      let y = document.getElementById("password");
+      if (y.type === "text") {
+        y.type = "password";
+      } else {
+        y.type = "text"
+      }
+    }
+    const buttonPassVis = document.querySelector('.passvis')
+    buttonPassVis.addEventListener('mousedown', (event) => {
+      passFunc();
+    })
+    const buttonPassInvis = document.querySelector('.passvis');
+    buttonPassInvis.addEventListener('mouseup', (event) => {
+      passInvis();
+    })
+  </script>
+</body>
+
+</html>
