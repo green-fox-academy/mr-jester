@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sign up form</title>
+</head>
+
+<body>
+  <h1>Sign Up</h1>
+  <form class="myForm">
+    <div>
+      <label>
+        <span>Username</span>
+        <input type="text" name="username" id="username" placeholder="Username" autofocus required>
+      </label>
+    </div>
+    <div>
+      <lable>
+        <span>E-mail</span>
+        <input type="email" name="email" id="email" placeholder="email" required>
+      </lable>
+    </div>
+    <div>
+      <label>
+        <span>Password</span>
+        <input type="password" name="password" id="password" placeholder="password" required class="pass">
+      </label>
+    </div>
+    <div>
+      <label>
+        <span>Retype Password</span>
+        <input type="password" name="repass" id="repass" placeholder="Retype Password" required class="pass">
+      </label>
+    </div>
+    <div>
+      <input type="button" class="passvis" value="passvis">
+    </div>
+    <button>Sign Me Up</button>
+  </form>
+  <script>
+    function passFunc() {
+      console.log('are u working')
+      document.querySelectorAll(".pass").forEach(element => {
+        if (element.type === "password") {
+          element.type = "text";
+        } else {
+          element.type = "password"
+        }
+      });
+    }
+    function passInvis() {
+      document.querySelectorAll(".pass").forEach(element => {
+
+        if (element.type === "text") {
+          element.type = "password";
+        } else {
+          element.type = "text"
+        }
+      })
+    }
+    const buttonPassVis = document.querySelector('.passvis')
+    buttonPassVis.addEventListener('mousedown', (event) => {
+      passFunc();
+    })
+    const buttonPassInvis = document.querySelector('.passvis');
+    buttonPassInvis.addEventListener('mouseup', (event) => {
+      passInvis();
+    })</script>
+</body>
+
+</html>
