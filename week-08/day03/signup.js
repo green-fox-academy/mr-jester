@@ -30,7 +30,6 @@ buttonPassInvis.addEventListener('mouseup', (event) => {
 const button = document.querySelector('.submit');
 const input = document.querySelectorAll('.pass')[0];
 input.addEventListener('input', (event) => {
-  console.log('oyyyy')
   if (document.querySelector('#mainPass').value === document.querySelector('#repass').value) {
     button.disabled = false;
   } else {
