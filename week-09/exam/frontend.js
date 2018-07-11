@@ -3,7 +3,7 @@
 const http = new XMLHttpRequest();
 
 http.open('get', 'http://localhost:3000/get', true);
-http.setRequestHeader('Content-Type', 'application/JSON');
+// http.setRequestHeader('Content-Type', 'application/JSON');
 
 http.onload = () => {
   const res = JSON.parse(http.responseText)
@@ -32,6 +32,26 @@ http.onload = () => {
       element.value= res.rows[event.target.id][element.name]
       })
   })
+  const button = document.querySelector('.submitbtn')
+  const http2 = new XMLHttpRequest()
+  http2.open ('POST' , 'http://localhost:3000/api/add')
+  button.addEventListener('click', (e) =>{
+    e.preventDefault();
+    const inputs = document.querySelectorAll('input')
+    http2.setRequestHeader('Content-Type', 'application/json');
+    console.log(inputs)
+    let x = {
+      attr_name: inputs[0].value,
+      city: inputs[1].value,
+      category: inputs[2].value,
+      price: inputs[3].value,
+      longitude: inputs[4].value,
+      lattitude: inputs[5].value,
+      recommended_age: inputs[6].value,
+      duration: inputs[7].value
+    }
+    console.log(x)
+    http2.send(JSON.stringify(x));
+  })
 }
-const attr_name
-http.send()
+  http.send()
